@@ -1,38 +1,41 @@
 # semantic-web
+
 Tutorial for semantic web, DBWiki, and SPARQL
 
+Gerard Puhalla
+William Greer
+Sayeed Siddiqui
+Allie Subtenly
+Chen Cai
 
-Semantic Web
-Gerard Puhalla, William Greer, Sayeed Siddiqui, Allie Subtenly, Chen Cai
-
-Overview / Introduction
+# Overview
 
 Semantic Web, in a broad sense, refers to the idea of structuring web pages so that computers are better able to read and process the data in these web pages. At present, the concept has not been fulfilled in its entirety, although millions of web pages implement it in some way. In addition, many companies from tech giants to small startups utilize the Semantic Web in some way.
 Typically, data on these web pages is stored in RDF (Resource Description Framework) format. Data is linked together so that the relation between any two objects is clearly defined. SPARQL is a query language similar to SQL that is used to retrieve data stored in RDF format from databases, and is recognized as an important technology of the Semantic Web.
 DBPedia is a project that strives to structure knowledge in Wikipedia, especially in its infoboxes and category hierarchy. Essentially, entities are constructed from articles and relations from links between them.
 The intent of this tutorial is to teach the reader how to construct a SPARQL query, as well as how to interpret the data returned by the query, starting with simple queries and progressing in complexity. 
 
-
-
-How to write Query
+# Writing a Query
 
 There are a few key parts to a SPARQL query.
 Variables are denoted with a ? before the variable name.
-?x
-?number 
-?person
+-?x
+-?number 
+-?person
+
 When building a SPARQL query, you must use certain keywords to form your request.
 SELECT 
 Pick the value or values to be returned
 One or many
-* can be used for all
-SELECT ?country
-SELECT ?country ?city
-SELECT *
+can be used for all
+-SELECT ?country
+-SELECT ?country ?city
+-SELECT *
 WHERE
 Specify requirements and make connections to return the values you want
-Island - Bridge - Island
-Thing1 - relationship - Thing2
+-Island - Bridge - Island
+-Thing1 - relationship - Thing2
+
 SELECT ?thing
 WHERE
 {
@@ -56,69 +59,61 @@ WHERE
     ?capital ?x  ex:Barack_Obama
   }
 
-Examples / Demos  
+# Examples  
 
 The WHERE section of a SPARQL query essentially tells us to find all entities (specified by SELECT) that satisfy certain constraints, known as triples. Triples consist of subject-predicate-object, much like the English sentences “Alice high-fives Bob”, or “Watson is a supercomputer”. Each constraint gets its own line, which is ended by a period.
 
 These constraints can also be thought of as bridges that connect islands in an archipelago. Each island is a noun (entity), and each bridge is a relationship (predicate). You can have multiple bridges connecting the same pair of islands, and 
 
 Find all presidents:
-SELECT ?prez
- WHERE {
-?prez rdf:type <http://dbpedia.org/class/yago/WikicatPresidentsOfTheUnitedStates>  . 
-}
+    SELECT ?prez
+     WHERE {
+    ?prez rdf:type <http://dbpedia.org/class/yago/WikicatPresidentsOfTheUnitedStates>  . 
+    }
 
 In natural language, we can translate this query as: find all presidents, where a president is defined as being in the class PresidentsOfTheUnitedStates.
-
-
-
 
 Find all first ladies:
 The first line of code tells us that any first lady must be a spouse of a president. We then define what a president is, by saying that they must be an instance of the class of presidents.
 
-SELECT ?first_lady
-WHERE {
-  ?first_lady <http://dbpedia.org/ontology/spouse> ?prez .
-  ?prez rdf:type <http://dbpedia.org/class/yago/WikicatPresidentsOfTheUnitedStates>  . 
-}
+    SELECT ?first_lady
+    WHERE {
+      ?first_lady <http://dbpedia.org/ontology/spouse> ?prez .
+      ?prez rdf:type <http://dbpedia.org/class/yago/WikicatPresidentsOfTheUnitedStates>  . 
+    }
 
 Let’s simplify this query a little by using prefixes. We can then reuse these prefixes in later searches and this makes performing queries easier and faster.
 
-PREFIX class: <http://dbpedia.org/class/yago/>
-PREFIX onto: <http://dbpedia.org/ontology/>
-SELECT ?first_lady
-WHERE {
-  ?first_lady onto:spouse ?prez .
-  ?prez rdf:type class:WikicatPresidentsOfTheUnitedStates . 
-}
-
-*** ADDING ANOTHER EXAMPLE ***
-
-
-
+    PREFIX class: <http://dbpedia.org/class/yago/>
+    PREFIX onto: <http://dbpedia.org/ontology/>
+    SELECT ?first_lady
+    WHERE {
+      ?first_lady onto:spouse ?prez .
+      ?prez rdf:type class:WikicatPresidentsOfTheUnitedStates . 
+    }
 
 3. Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
 
-PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
-SELECT ?name
-WHERE {
-    ?person foaf:name ?name .
-}
+    PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
+    SELECT ?name
+    WHERE {
+        ?person foaf:name ?name .
+    }
+    
 Note: ‘?’  -> variable (can be )
-
-
 
 4. Find only 5 people from Berners-Lee's list who has homepage
 
-SELECT *
-WHERE {
-    ?person foaf:name ?name .
-    ?person foaf:homepage ?home
-}
+    SELECT *
+    WHERE {
+        ?person foaf:name ?name .
+        ?person foaf:homepage ?home
+    }
 
 Finding entity addresses/URLs
 	This section will explain how to come up with the URLs shown in the examples. If the desired entity is a Wikipedia article, the URL <http://dbpedia.org/resource/ARTICLE_NAME> will usually be the corresponding DBPedia resource. 
-Quick Summary
+
+# Quick Summary
 
 Variables are preceded by a question mark (?var).
 

@@ -95,8 +95,8 @@ Let’s simplify this query a little by using prefixes. We can then reuse these 
       ?prez rdf:type class:WikicatPresidentsOfTheUnitedStates . 
     }
 
-3. Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
-
+Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
+    
     PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
     SELECT ?name
     WHERE {
@@ -105,7 +105,7 @@ Let’s simplify this query a little by using prefixes. We can then reuse these 
     
 Note: ‘?’  -> variable (can be )
 
-4. Find only 5 people from Berners-Lee's list who has homepage
+Find only 5 people from Berners-Lee's list who has homepage
 
     SELECT *
     WHERE {

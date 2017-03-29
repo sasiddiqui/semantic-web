@@ -1,24 +1,30 @@
-# Semantic-Web
+# semantic-web
 
 Tutorial for semantic web, DBWiki, and SPARQL
 
 Gerard Puhalla
+
 William Greer
+
 Sayeed Siddiqui
+
 Allie Subtenly
+
 Chen Cai
 
 # Overview
 
-Semantic Web, in a broad sense, refers to the idea of structuring web pages so that computers are better able to read and process the data in these web pages. At present, the concept has not been fulfilled in its entirety, although millions of web pages implement it in some way. In addition, many companies from tech giants to small startups utilize the Semantic Web in some way.
+The semantic web, in a broad sense, refers to the idea of structuring web pages so that computers are better able to read and process the data in these web pages. At present, the concept has not been fulfilled in its entirety, although millions of web pages implement it in some way. In addition, many companies from tech giants to small startups utilize the semantic web in some way.
 
 Typically, data on these web pages is stored in RDF (Resource Description Framework) format. Data is linked together so that the relation between any two objects is clearly defined. SPARQL is a query language similar to SQL that is used to retrieve data stored in RDF format from databases, and is recognized as an important technology of the Semantic Web.
 
-DBPedia is a project that strives to structure knowledge in Wikipedia, especially in its infoboxes and category hierarchy. Essentially, entities are constructed from articles and relations from links between them.
+DBPedia is a project that strives to structure knowledge in Wikipedia, especially in its infoboxes and category hierarchy. Essentially, entities are constructed from articles and relations from the links between them.
 
-The intent of this tutorial is to teach the reader how to construct a SPARQL query, as well as how to interpret the data returned by the query, starting with simple queries and progressing in complexity. 
+The intent of this tutorial is to teach the reader how to construct a SPARQL query, as well as how to interpret the data returned by the query, starting with simple queries and progressing in complexity.
 
 # Writing a Query
+
+One convenient way to test your SPARQL queries is to input them in: http://dbpedia.org/snorql
 
 There are a few key parts to a SPARQL query.
 Variables are denoted with a ? before the variable name.
@@ -95,8 +101,8 @@ Let’s simplify this query a little by using prefixes. We can then reuse these 
       ?prez rdf:type class:WikicatPresidentsOfTheUnitedStates . 
     }
 
-Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
-    
+3. Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
+
     PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
     SELECT ?name
     WHERE {
@@ -105,7 +111,7 @@ Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/we
     
 Note: ‘?’  -> variable (can be )
 
-Find only 5 people from Berners-Lee's list who has homepage
+4. Find only 5 people from Berners-Lee's list who has homepage
 
     SELECT *
     WHERE {
@@ -134,6 +140,3 @@ FILTER allows us to narrow the results using boolean expressions.
 
 There are many more keywords that allow us to enhance our queries these can be found in the official SPARQL specification:
 https://www.w3.org/TR/sparql11-query/
-
-
-

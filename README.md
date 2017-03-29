@@ -82,6 +82,27 @@ Let’s simplify this query a little by using prefixes. We can then reuse these 
       ?prez rdf:type class:WikicatPresidentsOfTheUnitedStates . 
     }
 
+Let’s reuse our prefixes, but for a completely different query. In this query we will incorporate one of our modifiers ORDER BY. We’ll sort countries by their population. To achieve this we will do what we did before with presidents and their wives, but this time do it with countries and their populations. Then we’ll use ORDER BY using the population to sort our countries.
+
+    PREFIX class: <http://dbpedia.org/class/yago/>
+    PREFIX onto: <http://dbpedia.org/ontology/>
+    SELECT ?country
+    WHERE {
+      ?country onto:populationTotal ?total .
+      ?country rdf:type class:WikicatCountries . 
+   } ORDER BY ?total
+
+But let’s say we want to know the 10 largest countries in the world (according to DBpedia). Then we need to modify the above query with the modifier LIMIT and specify in ORDER BY that we want our results in decending order.
+
+    PREFIX class: <http://dbpedia.org/class/yago/>
+    PREFIX onto: <http://dbpedia.org/ontology/>
+    SELECT ?country
+    WHERE {
+      ?country onto:populationTotal ?total .
+      ?country rdf:type class:WikicatCountries . 
+    } ORDER BY DESC(?total)
+    LIMIT 10
+
 3. Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
 
     PREFIX foaf:  <http://xmlns.com/foaf/0.1/>

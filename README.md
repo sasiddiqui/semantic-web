@@ -20,7 +20,11 @@ The intent of this tutorial is to teach the reader how to construct a SPARQL que
 
 # Writing a Query
 
-There are a few key parts to a SPARQL query. In SPARQL, variables are denoted with a ? before the variable name. An example would be ?x or ?person. When building a SPARQL query, you must use certain keywords to form your request. The first key word is SELECT. SELECT allows you to pick the value or values that are to be returned. Additionally, SELECT \* can be used to select all of the output. The next keyword WHERE, is used to specify requirements and make connections to return the values you want. It is in the WHERE section that you include code to specify the attirubtes of the resultyou are seeking. In the WHERE block, lines are built based on the rdf-tuple style, and so each line contains a first object, a relation, and a second object. Either of the objects or the relation can be replaced by a variable to further define your query. A period must be used at the end of each line to use multiple lines in a WHERE block.
+There are a few key parts to a SPARQL query. First in SPARQL, variables are denoted with a ? before the variable name. An example would be ?x or ?person. 
+
+When building a SPARQL query, you must use certain keywords to form your request. The first key word is SELECT. SELECT allows you to pick the value or values that are to be returned. Additionally, SELECT \* can be used to select all of the output. 
+
+The next keyword WHERE, is used to specify requirements and make connections to return the values you want. It is in the WHERE section that you include code to specify the attirubtes of the resultyou are seeking. In the WHERE block, lines are built based on the rdf-tuple style, and so each line contains a first object, a relation, and a second object. Either of the objects or the relation can be replaced by a variable to further define your query. A period must be used at the end of each line to use multiple lines in a WHERE block.
 ```		
 	SELECT ?thing
 	WHERE
@@ -28,7 +32,14 @@ There are a few key parts to a SPARQL query. In SPARQL, variables are denoted wi
 	<http://dbpedia.org/resource/Barack_Obama> ?relationship ?thing
 	}
 ```	
-There are several optional parameters you can add to a query as well. The LIMIT keyword allows you to limit the number of outputs returned by the query. For example, writing a query with LIMIT 10 would limit the output to 10 entries. The DISTINCT keyword eliminates any duplicates that may occur from a certain object in the query. The ORDER BY keyword allows you to arrange the order in which the output of the query is returned. An example would be using ORDER BY DESC(?list) to order ?list in descending order. The PREFIX keyword can be used to represent long url's in beginning as variable, allowing you to reuse a url many times without typing out the entire string.
+There are several optional parameters you can add to a query as well.
+The LIMIT keyword allows you to limit the number of outputs returned by the query. For example, writing a query with LIMIT 10 would limit the output to 10 entries.
+
+The DISTINCT keyword eliminates any duplicates that may occur from a certain object in the query.
+
+The ORDER BY keyword allows you to arrange the order in which the output of the query is returned. An example would be using ORDER BY DESC(?list) to order ?list in descending order.
+
+The PREFIX keyword can be used to represent long url's in beginning as variable, allowing you to reuse a url many times without typing out the entire string.
 ```	    
 	PREFIX ex: <http://example.com/exampleOntology#>
 	SELECT ?capital

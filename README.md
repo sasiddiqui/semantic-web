@@ -2,10 +2,10 @@
 
 Tutorial for semantic web, DBWiki, and SPARQL
 
-Gerard Puhalla
-William Greer
-Sayeed Siddiqui
-Allie Subtenly
+Gerard Puhalla,
+William Greer,
+Sayeed Siddiqui,
+Allie Subtenly,
 Chen Cai
 
 # Overview

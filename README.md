@@ -24,7 +24,7 @@ There are a few key parts to a SPARQL query. First in SPARQL, variables are deno
 
 When building a SPARQL query, you must use certain keywords to form your request. The first key word is SELECT. SELECT allows you to pick the value or values that are to be returned. Additionally, SELECT \* can be used to select all of the output. 
 
-The next keyword WHERE, is used to specify requirements and make connections to return the values you want. It is in the WHERE section that you include code to specify the attirubtes of the resultyou are seeking. In the WHERE block, lines are built based on the rdf-tuple style, and so each line contains a first object, a relation, and a second object. Either of the objects or the relation can be replaced by a variable to further define your query. A period must be used at the end of each line to use multiple lines in a WHERE block.
+The next keyword WHERE, is used to specify requirements and make connections to return the values you want. It is in the WHERE section that you include code to specify the attributes of the result you are seeking. In the WHERE block, lines are built based on the RDF format, and so each line contains a first object, a relation, and a second object. Either of the objects or the relation can be replaced by a variable to further define your query. A period must be used at the end of each line to use multiple lines in a WHERE block.
 ```		
 	SELECT ?thing
 	WHERE{

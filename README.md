@@ -119,8 +119,7 @@ Find only 5 people from Berners-Lee's list who has homepage
         ?person foaf:homepage ?home
     }
 
-Finding entity addresses/URLs
-	This section will explain how to come up with the URLs shown in the examples. If the desired entity is a Wikipedia article, the URL <http://dbpedia.org/resource/ARTICLE_NAME> will usually be the corresponding DBPedia resource. 
+Note: * will give all variables 
 
 # Quick Summary
 

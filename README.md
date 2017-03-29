@@ -1,4 +1,4 @@
-# semantic-web
+# Semantic-Web
 
 Tutorial for semantic web, DBWiki, and SPARQL
 

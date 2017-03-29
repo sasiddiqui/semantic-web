@@ -27,8 +27,7 @@ When building a SPARQL query, you must use certain keywords to form your request
 The next keyword WHERE, is used to specify requirements and make connections to return the values you want. It is in the WHERE section that you include code to specify the attirubtes of the resultyou are seeking. In the WHERE block, lines are built based on the rdf-tuple style, and so each line contains a first object, a relation, and a second object. Either of the objects or the relation can be replaced by a variable to further define your query. A period must be used at the end of each line to use multiple lines in a WHERE block.
 ```		
 	SELECT ?thing
-	WHERE
-	{
+	WHERE{
 	<http://dbpedia.org/resource/Barack_Obama> ?relationship ?thing
 	}
 ```	
@@ -43,10 +42,9 @@ The PREFIX keyword can be used to represent long url's in beginning as variable,
 ```	    
 	PREFIX ex: <http://example.com/exampleOntology#>
 	SELECT ?capital
-	WHERE
-	  {
+	WHERE {
 	    ?capital ?x  ex:Barack_Obama
-	  }
+	}
 ```
 
 # Examples  
@@ -56,11 +54,12 @@ The WHERE section of a SPARQL query essentially tells us to find all entities (s
 These constraints can also be thought of as bridges that connect islands in an archipelago. Each island is a noun (entity), and each bridge is a relationship (predicate). You can have multiple bridges connecting the same pair of islands, and 
 
 Find all presidents:
+    
     SELECT ?prez
-     WHERE {
-    ?prez rdf:type <http://dbpedia.org/class/yago/WikicatPresidentsOfTheUnitedStates>  . 
+    WHERE {
+    	?prez rdf:type <http://dbpedia.org/class/yago/WikicatPresidentsOfTheUnitedStates>  . 
     }
-
+    
 In natural language, we can translate this query as: find all presidents, where a president is defined as being in the class PresidentsOfTheUnitedStates.
 
 Find all first ladies:

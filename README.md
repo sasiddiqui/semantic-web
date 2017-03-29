@@ -11,8 +11,11 @@ Chen Cai
 # Overview
 
 Semantic Web, in a broad sense, refers to the idea of structuring web pages so that computers are better able to read and process the data in these web pages. At present, the concept has not been fulfilled in its entirety, although millions of web pages implement it in some way. In addition, many companies from tech giants to small startups utilize the Semantic Web in some way.
+
 Typically, data on these web pages is stored in RDF (Resource Description Framework) format. Data is linked together so that the relation between any two objects is clearly defined. SPARQL is a query language similar to SQL that is used to retrieve data stored in RDF format from databases, and is recognized as an important technology of the Semantic Web.
+
 DBPedia is a project that strives to structure knowledge in Wikipedia, especially in its infoboxes and category hierarchy. Essentially, entities are constructed from articles and relations from links between them.
+
 The intent of this tutorial is to teach the reader how to construct a SPARQL query, as well as how to interpret the data returned by the query, starting with simple queries and progressing in complexity. 
 
 # Writing a Query

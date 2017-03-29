@@ -89,7 +89,7 @@ Let’s reuse our prefixes, but for a completely different query. In this query 
     WHERE {
       ?country onto:populationTotal ?total .
       ?country rdf:type class:WikicatCountries . 
-    } ORDER BY ?total
+   } ORDER BY ?total
 
 But let’s say we want to know the 10 largest countries in the world (according to DBpedia). Then we need to modify the above query with the modifier LIMIT and specify in ORDER BY that we want our results in decending order.
 
@@ -102,26 +102,18 @@ But let’s say we want to know the 10 largest countries in the world (according
     } ORDER BY DESC(?total)
     LIMIT 10
 
-3. Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
+## Tips on finding entities and relationships
 
-    PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
-    SELECT ?name
+This section will explain how to come up with the URLs shown in the examples. If the desired entity is a Wikipedia article, the URL <http://dbpedia.org/resource/ARTICLE_NAME> will usually be the corresponding DBPedia resource. To find a relationship, use a query like:
+
+    SELECT ?property ?hasValue ?isValueOf
     WHERE {
-        ?person foaf:name ?name .
-    }
-    
-Note: ‘?’  -> variable (can be )
-
-4. Find only 5 people from Berners-Lee's list who has homepage
-
-    SELECT *
-    WHERE {
-        ?person foaf:name ?name .
-        ?person foaf:homepage ?home
+      { <http://dbpedia.org/resource/ENTITY> ?property ?hasValue }
+      UNION
+      { ?isValueOf ?property <http://dbpedia.org/resource/ENTITY> }
     }
 
-Finding entity addresses/URLs
-	This section will explain how to come up with the URLs shown in the examples. If the desired entity is a Wikipedia article, the URL <http://dbpedia.org/resource/ARTICLE_NAME> will usually be the corresponding DBPedia resource. 
+This query will find all bridges to the entity or from it, thereby giving you all of its relationships. You can then see what their URLs are, to use them in future queries. This query can also be used to find the URL of an entity: if you run it on a closely-related entity, you'll see the desired one come up in the results.
 
 # Quick Summary
 
@@ -136,6 +128,8 @@ WHERE is where we build queries. Queries are built using triples that relate sub
 DISTINCT only returns unique objects.
 
 ORDER BY and LIMIT serve as query modifiers. They can change the order and limit the results of the query respectively.
+
+FILTER allows us to narrow the results using boolean expressions.
 
 There are many more keywords that allow us to enhance our queries these can be found in the official SPARQL specification:
 https://www.w3.org/TR/sparql11-query/

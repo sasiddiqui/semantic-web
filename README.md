@@ -89,7 +89,7 @@ Let’s reuse our prefixes, but for a completely different query. In this query 
     WHERE {
       ?country onto:populationTotal ?total .
       ?country rdf:type class:WikicatCountries . 
-   } ORDER BY ?total
+    } ORDER BY ?total
 
 But let’s say we want to know the 10 largest countries in the world (according to DBpedia). Then we need to modify the above query with the modifier LIMIT and specify in ORDER BY that we want our results in decending order.
 
@@ -136,8 +136,6 @@ WHERE is where we build queries. Queries are built using triples that relate sub
 DISTINCT only returns unique objects.
 
 ORDER BY and LIMIT serve as query modifiers. They can change the order and limit the results of the query respectively.
-
-FILTER allows us to narrow the results using boolean expressions.
 
 There are many more keywords that allow us to enhance our queries these can be found in the official SPARQL specification:
 https://www.w3.org/TR/sparql11-query/

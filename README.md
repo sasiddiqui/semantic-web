@@ -1,4 +1,4 @@
-# Semantic-Web
+# semantic-web
 
 Tutorial for semantic web, DBWiki, and SPARQL
 
@@ -80,7 +80,7 @@ Find all presidents:
     ?prez rdf:type <http://dbpedia.org/class/yago/WikicatPresidentsOfTheUnitedStates>  . 
     }
 
-In natural language, we can translate this query as: find all presidents, where a president is defined as being in the class PresidentsOfTheUnitedStates.
+In natural language, we can translate this query as: find all presidents, where a president is defined as being in the class `PresidentsOfTheUnitedStates`.
 
 Find all first ladies:
 The first line of code tells us that any first lady must be a spouse of a president. We then define what a president is, by saying that they must be an instance of the class of presidents.
@@ -100,7 +100,8 @@ Let’s simplify this query a little by using prefixes. We can then reuse these 
       ?first_lady onto:spouse ?prez .
       ?prez rdf:type class:WikicatPresidentsOfTheUnitedStates . 
     }
-Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
+
+3. Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
 
     PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
     SELECT ?name
@@ -110,7 +111,7 @@ Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/we
     
 Note: ‘?’  -> variable (can be )
 
-Find only 5 people from Berners-Lee's list who has homepage
+4. Find only 5 people from Berners-Lee's list who has homepage
 
     SELECT *
     WHERE {

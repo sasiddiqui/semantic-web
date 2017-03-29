@@ -1,11 +1,11 @@
-# Semantic-Web
+# semantic-web
 
 Tutorial for semantic web, DBWiki, and SPARQL
 
 Gerard Puhalla
 William Greer
 Sayeed Siddiqui
-Allie Subtelny
+Allie Subtenly
 Chen Cai
 
 # Overview
@@ -20,24 +20,7 @@ The intent of this tutorial is to teach the reader how to construct a SPARQL que
 
 # Writing a Query
 
-There are a few key parts to a SPARQL query.
-* Variables are denoted with a ? before the variable name.
-	* ?x
-	* ?number 
-	* ?person
-When building a SPARQL query, you must use certain keywords to form your request.
-* SELECT 
-	* Pick the value or values to be returned
-	* One or many
-	* \* can be used to select all
-		* SELECT ?country
-		* SELECT ?country ?city
-		* SELECT \*
-* WHERE
-	* Specify requirements and make connections to return the values you want
-	* Island - Bridge - Island
-		* Thing1 - relationship - Thing2
-	* A period must be used to use multiple lines in a WHERE block.
+There are a few key parts to a SPARQL query. In SPARQL, variables are denoted with a ? before the variable name. An example would be ?x or ?person. When building a SPARQL query, you must use certain keywords to form your request. The first key word is SELECT. SELECT allows you to pick the value or values that are to be returned. Additionally, SELECT \* can be used to select all of the output. The next keyword WHERE, is used to specify requirements and make connections to return the values you want. It is in the WHERE section that you include code to specify the attirubtes of the resultyou are seeking. In the WHERE block, lines are built based on the rdf-tuple style, and so each line contains a first object, a relation, and a second object. Either of the objects or the relation can be replaced by a variable to further define your query. A period must be used at the end of each line to use multiple lines in a WHERE block.
 ```		
 	SELECT ?thing
 	WHERE
@@ -45,17 +28,7 @@ When building a SPARQL query, you must use certain keywords to form your request
 	<http://dbpedia.org/resource/Barack_Obama> ?relationship ?thing
 	}
 ```	
-	
-* LIMIT (Optional)
-	* Similar to SQL, limits the number of outputs
-	* LIMIT 10
-* DISTINCT (Optional)
-	* Eliminates duplicates from output
-* ORDER BY (Optional)
-	* Again similar to SQL, changes ordering of output
-	* ORDER BY DESC(?list)
-* PREFIX (Optional)
-	* Used to represent url in beginning as variable
+There are several optional parameters you can add to a query as well. The LIMIT keyword allows you to limit the number of outputs returned by the query. For example, writing a query with LIMIT 10 would limit the output to 10 entries. The DISTINCT keyword eliminates any duplicates that may occur from a certain object in the query. The ORDER BY keyword allows you to arrange the order in which the output of the query is returned. An example would be using ORDER BY DESC(?list) to order ?list in descending order. The PREFIX keyword can be used to represent long url's in beginning as variable, allowing you to reuse a url many times without typing out the entire string.
 ```	    
 	PREFIX ex: <http://example.com/exampleOntology#>
 	SELECT ?capital
@@ -98,7 +71,7 @@ Let’s simplify this query a little by using prefixes. We can then reuse these 
       ?prez rdf:type class:WikicatPresidentsOfTheUnitedStates . 
     }
 
-Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
+3. Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/webdav/timbl/foaf.rdf
 
     PREFIX foaf:  <http://xmlns.com/foaf/0.1/>
     SELECT ?name
@@ -108,7 +81,7 @@ Tim Berners-Lee's FOAF information available at http://dig.csail.mit.edu/2008/we
     
 Note: ‘?’  -> variable (can be )
 
-Find only 5 people from Berners-Lee's list who has homepage
+4. Find only 5 people from Berners-Lee's list who has homepage
 
     SELECT *
     WHERE {
@@ -116,7 +89,8 @@ Find only 5 people from Berners-Lee's list who has homepage
         ?person foaf:homepage ?home
     }
 
-Note: ‘*’ will return all variables
+Finding entity addresses/URLs
+	This section will explain how to come up with the URLs shown in the examples. If the desired entity is a Wikipedia article, the URL <http://dbpedia.org/resource/ARTICLE_NAME> will usually be the corresponding DBPedia resource. 
 
 # Quick Summary
 

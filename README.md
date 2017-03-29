@@ -5,7 +5,7 @@ Tutorial for semantic web, DBWiki, and SPARQL
 Gerard Puhalla
 William Greer
 Sayeed Siddiqui
-Allie Subtenly
+Allie Subtelny
 Chen Cai
 
 # Overview

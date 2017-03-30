@@ -28,7 +28,7 @@ The next keyword WHERE, is used to specify requirements and make connections to 
 ```		
 	SELECT ?thing
 	WHERE{
-	<http://dbpedia.org/resource/Barack_Obama> ?relationship ?thing
+	    <http://dbpedia.org/resource/Barack_Obama> ?relationship ?thing
 	}
 ```	
 There are several optional parameters you can add to a query as well.

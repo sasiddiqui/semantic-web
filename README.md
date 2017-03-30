@@ -49,6 +49,8 @@ The PREFIX keyword can be used to represent long url's in beginning as variable,
 
 # Examples  
 
+http://dbpedia.org/snorql/
+
 The WHERE section of a SPARQL query essentially tells us to find all entities (specified by SELECT) that satisfy certain constraints, known as triples. Triples consist of subject-predicate-object, much like the English sentences “Alice high-fives Bob”, or “Watson is a supercomputer”. Each constraint gets its own line, which is ended by a period.
 
 These constraints can also be thought of as bridges that connect islands in an archipelago. Each island is a noun (entity), and each bridge is a relationship (predicate). You can have multiple bridges connecting the same pair of islands, and 

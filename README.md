@@ -18,7 +18,7 @@ DBPedia is a project that strives to structure knowledge in Wikipedia, especiall
 
 The intent of this tutorial is to teach the reader how to construct a SPARQL query, as well as how to interpret the data returned by the query, starting with simple queries and progressing in complexity. 
 
-# Writing a Query
+# Writing a Basic Query
 
 There are a few key parts to a SPARQL query. First in SPARQL, variables are denoted with a ? before the variable name. An example would be ?x or ?person. 
 

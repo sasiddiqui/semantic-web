@@ -41,9 +41,9 @@ The ORDER BY keyword allows you to arrange the order in which the output of the 
 The PREFIX keyword can be used to represent long url's in beginning as variable, allowing you to reuse a url many times without typing out the entire string.
 ```	    
 	PREFIX ex: <http://example.com/exampleOntology#>
-	SELECT ?capital
+	SELECT ?person
 	WHERE {
-	    ?capital ?x  ex:Barack_Obama
+	    ?person ?x  ex:Barack_Obama
 	}
 ```
 
